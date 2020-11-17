@@ -48,7 +48,7 @@ jobs:
     - name: gcov
       working-directory: ${{runner.workspace}}/build
       shell: bash
-      run: cmake --build . --target gcov
+      run: cmake --build . --target test-gcov
 
     - name: Codecov
       working-directory: ${{runner.workspace}}
