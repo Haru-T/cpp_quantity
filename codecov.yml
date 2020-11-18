@@ -1,2 +1,6 @@
 ignore:
   - "test"
+  - "**catch2**"
+
+fixes:
+  - "cpp_quantity/::"

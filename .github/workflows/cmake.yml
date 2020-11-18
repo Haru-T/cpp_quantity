@@ -51,7 +51,7 @@ jobs:
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ctest -C $BUILD_TYPE
 
-    - name: Gcov_Lcov
+    - name: gcov and lcov
       working-directory: ${{runner.workspace}}/build
       shell: bash
       run: |
