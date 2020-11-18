@@ -13,10 +13,12 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 set(CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/contrib ${CMAKE_MODULE_PATH})
 
-add_executable(test it_works.cpp)
+add_executable(test
+    it_works.cpp
+    dimension.cpp)
 target_link_libraries(test
     PRIVATE Catch2::Catch2
-    INTERFACE cpp_quantity)
+    PRIVATE cpp_quantity)
 
 if (ENABLE_COVERAGE)
     FetchContent_Declare(
