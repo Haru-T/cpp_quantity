@@ -27,11 +27,11 @@ if (ENABLE_COVERAGE)
         GIT_TAG 39784bad607975ee91ca7c578fe5669563cd4c50
     )
     set(CMAKE_MODULE_PATH ${FETCHCONTENT_BASE_DIR}/cmake_codecov-src/cmake ${CMAKE_MODULE_PATH})
-    FetchContent_MakeAvailable(CMake_codecov)
+    FetchContent_Populate(CMake_codecov)
 
     find_package(codecov)
     add_coverage(test)
-    list(APPEND LCOV_REMOVE_PATTERNS "/usr/")
+    list(APPEND LCOV_REMOVE_PATTERNS "/usr/*")
     coverage_evaluate()
 endif()
 
