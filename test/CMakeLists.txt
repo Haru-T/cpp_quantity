@@ -13,10 +13,12 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 set(CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/contrib ${CMAKE_MODULE_PATH})
 
-add_executable(test it_works.cpp)
+add_executable(test
+    it_works.cpp
+    dimension.cpp)
 target_link_libraries(test
     PRIVATE Catch2::Catch2
-    INTERFACE cpp_quantity)
+    PRIVATE cpp_quantity)
 
 if (ENABLE_COVERAGE)
     FetchContent_Declare(
@@ -25,11 +27,11 @@ if (ENABLE_COVERAGE)
         GIT_TAG 39784bad607975ee91ca7c578fe5669563cd4c50
     )
     set(CMAKE_MODULE_PATH ${FETCHCONTENT_BASE_DIR}/cmake_codecov-src/cmake ${CMAKE_MODULE_PATH})
-    FetchContent_MakeAvailable(CMake_codecov)
+    FetchContent_Populate(CMake_codecov)
 
     find_package(codecov)
     add_coverage(test)
-    list(APPEND LCOV_REMOVE_PATTERNS "/usr/")
+    list(APPEND LCOV_REMOVE_PATTERNS "/usr/*")
     coverage_evaluate()
 endif()
 
