@@ -9,7 +9,7 @@
  * This project is released under the MIT license.
  */
 
-#include "dimension.hpp"
+#include <cpp_quantity/dimension.hpp>
 
 #include <catch2/catch.hpp>
 #include <type_traits>
